@@ -10,7 +10,7 @@ const VideoGenerator: React.FC = () => {
 
       <main className="flex-1">
         <iframe
-          src="https://ai-content-studio-572959939599.us-west1.run.app"
+          src="https://video-image-text-generation-production.up.railway.app/"
           title="Video Generator App"
           className="w-full h-[calc(100vh-160px)] border-0"
         />

@@ -1,0 +1,221 @@
+# 🧞‍♂️ Speak Genie - AI Voice Tutor
+
+<div align="center">
+
+![Speak Genie](public/Genie.gif)
+
+**🎤 Your Intelligent Voice-Powered English Learning Companion**
+
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.2.0-646CFF.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC.svg)](https://tailwindcss.com/)
+
+[🚀 Live Demo](https://speak-genie-ai-tutor.vercel.app/) • [📖 Documentation](#documentation) • [✨ Features](#features)
+
+</div>
+
+## 🎬 Try It Now!
+
+**🌐 Live Demo:** [https://speak-genie-ai-tutor.vercel.app/](https://speak-genie-ai-tutor.vercel.app/)
+
+Experience Speak Genie in action! No installation required - just open the link, allow microphone access, and start practicing English with our AI tutor. Perfect for testing all features including:
+- ✅ Multi-language voice responses
+- ✅ Interactive roleplay scenarios  
+- ✅ Real-time speech recognition
+- ✅ AI-powered conversations
+
+## 🌟 Overview
+
+Speak Genie is an innovative AI-powered voice tutor that revolutionizes English language learning through interactive conversations. Combining cutting-edge speech recognition, natural language processing, and multi-language support, it provides an immersive learning experience for users of all levels.
+
+### 🎯 Key Highlights
+
+- **🎤 Voice-First Learning** - Practice speaking English through natural conversations
+- **🌍 Multi-Language Support** - AI responds in your native language (Hindi, Marathi, Gujarati, Tamil)
+- **🎭 Interactive Roleplay** - Practice real-world scenarios (ordering food, job interviews, shopping)
+- **🤖 AI-Powered Feedback** - Intelligent responses and conversation guidance
+- **📱 Modern Interface** - Beautiful, responsive design with smooth animations
+- **🔒 Secure Authentication** - Powered by Clerk for seamless user management
+
+## ✨ Features
+
+### 🎤 Voice Interaction Modes
+
+#### **Free-Flow AI Chatbot**
+- Natural conversations about any topic
+- Build confidence through casual dialogue
+- AI adapts to your speaking level
+- Perfect for breaking the ice with English speaking
+
+#### **Interactive Roleplay Scenarios**
+- 🏠 **At Home** - Family conversations and daily routines
+- 🛒 **Shopping** - Practice buying groceries, clothes, and negotiating
+- 🍽️ **Restaurant** - Ordering food, asking about menu items
+- 🏫 **School/Work** - Professional conversations and presentations
+
+### 🌍 Multi-Language Support
+
+**Revolutionary Learning Approach:**
+- **You speak:** English (for practice)
+- **Genie responds:** In your native language for better understanding
+- **Supported Languages:**
+  - 🇺🇸 English
+  - 🇮🇳 हिंदी (Hindi)
+  - 🇮🇳 मराठी (Marathi)
+  - 🇮🇳 ગુજરાતી (Gujarati)
+  - 🇮🇳 தமிழ் (Tamil)
+
+### 🔥 Technical Features
+
+- **Real-time Speech Recognition** - Powered by Web Speech API
+- **Natural Voice Synthesis** - High-quality text-to-speech
+- **AI-Powered Conversations** - Intelligent responses using Google Generative AI
+- **Responsive Design** - Works seamlessly on desktop and mobile
+- **Real-time Database** - Convex for instant data synchronization
+- **Component Library** - Beautiful UI with Radix UI and Tailwind CSS
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+- Modern web browser with microphone access
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/CipherCraze/-SpeakGenie-AI-Tutor.git
+   cd "Speak Genie"
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Configure your environment variables:
+   ```env
+   VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
+   VITE_CONVEX_URL=your_convex_url
+   VITE_GOOGLE_AI_API_KEY=your_google_ai_key
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+> **💡 Quick Alternative:** Try the [live demo](https://speak-genie-ai-tutor.vercel.app/) instantly without any setup!
+
+## 🛠️ Tech Stack
+
+| Category | Technology | Purpose |
+|----------|------------|---------|
+| **Frontend** | React 18 + TypeScript | Modern UI development |
+| **Build Tool** | Vite | Lightning-fast development |
+| **Styling** | Tailwind CSS | Utility-first styling |
+| **UI Components** | Radix UI | Accessible component primitives |
+| **Authentication** | Clerk | User management & auth |
+| **Database** | Convex | Real-time serverless database |
+| **AI** | Google Generative AI | Intelligent conversations |
+| **Speech** | Web Speech API | Voice recognition & synthesis |
+| **Deployment** | Vercel | Serverless hosting |
+
+## 📖 Documentation
+
+### Getting Started
+1. **Sign Up/Login** - Create your account using Clerk authentication
+2. **Choose Learning Mode** - Select between Free-Flow chat or Roleplay scenarios
+3. **Select Language** - Choose your preferred response language
+4. **Start Speaking** - Click the microphone and begin your English practice
+
+### Voice Commands
+- **"Start conversation"** - Begin free-flow chat
+- **"Let's roleplay"** - Enter scenario-based practice
+- **"Change language"** - Switch response language
+- **"Stop listening"** - End current session
+
+### API Integration
+
+The app integrates with several services:
+
+- **Clerk Authentication** - User management
+- **Convex Database** - Real-time data storage
+- **Google Generative AI** - Conversation intelligence
+- **Web Speech API** - Voice input/output
+
+## 🎯 Learning Methodology
+
+### Beginner Friendly
+- Start with simple conversations
+- AI adjusts complexity based on responses
+- Native language support for better comprehension
+
+### Progressive Learning
+- Vocabulary building through context
+- Grammar correction through natural conversation
+- Pronunciation practice with voice feedback
+
+### Real-World Practice
+- Scenario-based learning
+- Cultural context integration
+- Practical conversation skills
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Commit your changes** (`git commit -m 'Add amazing feature'`)
+4. **Push to the branch** (`git push origin feature/amazing-feature`)
+5. **Open a Pull Request**
+
+### Development Guidelines
+- Follow TypeScript best practices
+- Maintain component modularity
+- Add tests for new features
+- Update documentation
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Clerk** for seamless authentication
+- **Convex** for real-time database functionality
+- **Google** for Generative AI capabilities
+- **Radix UI** for accessible components
+- **Vercel** for deployment platform
+
+## 📞 Support
+
+- **🌐 Live Demo** - [Try Speak Genie now!](https://speak-genie-ai-tutor.vercel.app/)
+- **GitHub Issues** - [Report bugs or request features](https://github.com/CipherCraze/-SpeakGenie-AI-Tutor/issues)
+- **Documentation** - [Comprehensive guides](./VOICE_TUTOR_GUIDE.md)
+- **Demo Script** - [Multi-language demo walkthrough](./MULTILINGUAL_DEMO.md)
+
+---
+
+<div align="center">
+
+**Made with ❤️ for English learners worldwide**
+
+🌐 **[Try Live Demo](https://speak-genie-ai-tutor.vercel.app/)** 🌐
+
+[⭐ Star this repo](https://github.com/CipherCraze/-SpeakGenie-AI-Tutor) • [🐛 Report bug](https://github.com/CipherCraze/-SpeakGenie-AI-Tutor/issues) • [💡 Request feature](https://github.com/CipherCraze/-SpeakGenie-AI-Tutor/issues)
+
+</div>
+

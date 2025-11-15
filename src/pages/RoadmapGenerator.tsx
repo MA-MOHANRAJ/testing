@@ -1,27 +1,27 @@
 'use client';
 
-import { useUser } from "@clerk/clerk-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Navbar } from "@/components/navbar"; // Imported Navbar
 import { Footer } from "@/components/footer"; // Imported Footer
-import { useNavigate } from "react-router-dom"; // Imported for navigation
-import {
-  ChevronRight,
-  Calendar,
-  Clock,
-  CheckCircle2,
-  Sparkles,
-  AlertCircle,
-  BookOpen,
-  ArrowLeft, // Icon for back button
-  Home
-} from "lucide-react";
-import { useState, useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { Navbar } from "@/components/navbar"; // Imported Navbar
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Progress } from "@/components/ui/progress";
 import { storage } from "@/lib/storage";
+import { useUser } from "@clerk/clerk-react";
+import {
+  AlertCircle,
+  ArrowLeft,
+  BookOpen,
+  Calendar,
+  CheckCircle2,
+  ChevronRight,
+  Clock, // Icon for back button
+  Home,
+  Sparkles
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom"; // Imported for navigation
 
 /* ---------- Types ---------- */
 interface QuizQuestion {
@@ -554,7 +554,10 @@ Return ONLY valid JSON (no markdown) with this exact structure:
                     </div>
                     <span className="text-2xl font-bold text-purple-600">{progress}%</span>
                 </div>
-                <Progress value={progress} className="h-3 bg-gray-100" indicatorClassName="bg-gradient-to-r from-purple-600 to-indigo-600" />
+                <Progress 
+  value={progress} 
+  className="h-3 bg-gray-100 [&>div]:bg-gradient-to-r [&>div]:from-purple-600 [&>div]:to-indigo-600 [&>div]:rounded-full [&>div]:transition-all" 
+/>
               </Card>
 
               {schedule.map((day, di) => (

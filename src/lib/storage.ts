@@ -1,4 +1,11 @@
 // src/lib/storage.ts
+export interface Milestone {
+  title: string;
+  duration_days: number;
+  tasks: string[];
+  resources: string[];
+}
+
 export interface StoredRoadmap {
   id: string;
   topic: string;

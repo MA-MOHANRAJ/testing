@@ -2,30 +2,27 @@ import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { SignInButton, useUser } from "@clerk/clerk-react";
-import { 
+import { motion, useAnimation, useInView } from "framer-motion";
+import {
   ArrowRight,
-  Bot,
-  Code,
-  FileText,
-  Lightbulb,
-  Mic,
-  Video,
+  Book,
+  Brain,
+  Calculator,
   Calendar,
+  Code,
+  ExternalLink,
+  FileText,
+  Heart,
+  Lightbulb,
+  Rocket,
   Sparkles,
   Star,
-  Heart,
-  Zap,
   Trophy,
-  Target,
-  Rocket,
-  Brain,
-  Book,
-  Calculator,
-  ExternalLink,
+  Video,
+  Zap
 } from "lucide-react";
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useNavigate } from "react-router";
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router";
 
 const COOL_TOOLS = [
   {
@@ -123,7 +120,7 @@ const wiggleVariants = {
     transition: {
       duration: 0.5,
       repeat: Infinity,
-      repeatType: "reverse",
+      repeatType: "reverse" as const,
     },
   },
 };

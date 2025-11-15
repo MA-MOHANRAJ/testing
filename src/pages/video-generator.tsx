@@ -1,7 +1,7 @@
 // src/pages/video-generator.tsx
-import React from "react";
-import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/navbar";
+import React from "react";
 
 const VideoGenerator: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const VideoGenerator: React.FC = () => {
 
       <main className="flex-1">
         <iframe
-          src="https://video-image-text-generation-production.up.railway.app/"
+          src="https://video-image-text-generation-production.up.railway.app/ "
           title="Video Generator App"
           className="w-full h-[calc(100vh-160px)] border-0"
         />

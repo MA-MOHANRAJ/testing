@@ -149,7 +149,7 @@ const starVariants = {
 };
 
 function App() {
-  const { user, isLoaded: isUserLoaded } = useUser();
+  const { user, isLoaded, isSignedIn } = useUser();
   const navigate = useNavigate();
 
   const heroRef = useRef(null);
@@ -273,7 +273,7 @@ function App() {
 
               {/* Big Action Button */}
               <motion.div className="pt-6" variants={bounceVariants}>
-                {!isUserLoaded ? (
+                {!isLoaded ? (
                   <div className="h-16 w-72 rounded-3xl bg-slate-200 animate-pulse mx-auto"></div>
                 ) : !user ? (
                   <SignInButton mode="modal">
@@ -354,63 +354,88 @@ function App() {
                 },
               }}
             >
-              {COOL_TOOLS.map((tool) => (
-                <motion.div
-                  key={tool.title}
-                  className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-slate-200 hover:border-purple-400 overflow-hidden transform hover:-translate-y-2"
-                  variants={bounceVariants}
-                  whileHover={{ scale: 1.05, rotate: 1 }}
-                >
-                  {/* Fun gradient background */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${tool.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                  ></div>
-
-                  <div className="relative z-10">
-                    {/* Big Emoji Icon with SMOOTH transition */}
-                    <motion.div
-                      className="text-6xl mb-4"
-                      whileHover={{
-                        scale: 1.2,
-                        rotate: 360,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      {tool.emoji}
-                    </motion.div>
-
-                    <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
-                      {tool.title}
-                    </h3>
-
-                    <p className="text-slate-600 text-base leading-relaxed font-semibold">
-                      {tool.description}
-                    </p>
-
-                    {/* Fun hover indicator */}
-                    <motion.div
-                      className="mt-4 inline-flex items-center gap-2 text-purple-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity"
-                      initial={{ x: -20 }}
-                      whileHover={{ x: 0 }}
-                    >
-                      <span>Click to explore!</span>
-                      <ArrowRight className="h-5 w-5" />
-                    </motion.div>
-                  </div>
-
-                  {/* Sparkle effects */}
-                  <motion.div
-                    className="absolute top-4 right-4 text-2xl opacity-0 group-hover:opacity-100"
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+              {COOL_TOOLS.map((tool) => {
+                const Card = (
+                  <motion.button
+                    type="button"
+                    onClick={() => {
+                      if (isSignedIn) {
+                        // For signed-in users, go to dashboard (or specific tool route)
+                        navigate("/dashboard");
+                      }
+                      // For signed-out users, click is handled by SignInButton wrapper
+                    }}
+                    className="group relative w-full text-left bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-slate-200 hover:border-purple-400 overflow-hidden transform hover:-translate-y-2"
+                    variants={bounceVariants}
+                    whileHover={{ scale: 1.05, rotate: 1 }}
                   >
-                    ✨
-                  </motion.div>
-                </motion.div>
-              ))}
+                    {/* Fun gradient background */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${tool.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                    ></div>
+
+                    <div className="relative z-10">
+                      {/* Big Emoji Icon with SMOOTH transition */}
+                      <motion.div
+                        className="text-6xl mb-4"
+                        whileHover={{
+                          scale: 1.2,
+                          rotate: 360,
+                        }}
+                        transition={{
+                          duration: 0.5,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        {tool.emoji}
+                      </motion.div>
+
+                      <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
+                        {tool.title}
+                      </h3>
+
+                      <p className="text-slate-600 text-base leading-relaxed font-semibold">
+                        {tool.description}
+                      </p>
+
+                      {/* Fun hover indicator */}
+                      <motion.div
+                        className="mt-4 inline-flex items-center gap-2 text-purple-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity"
+                        initial={{ x: -20 }}
+                        whileHover={{ x: 0 }}
+                      >
+                        <span>Click to explore!</span>
+                        <ArrowRight className="h-5 w-5" />
+                      </motion.div>
+                    </div>
+
+                    {/* Sparkle effects */}
+                    <motion.div
+                      className="absolute top-4 right-4 text-2xl opacity-0 group-hover:opacity-100"
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      ✨
+                    </motion.div>
+                  </motion.button>
+                );
+
+                if (!isSignedIn) {
+                  // Wrap with SignInButton so clicking opens Clerk modal
+                  return (
+                    <SignInButton mode="modal" key={tool.title}>
+                      {Card}
+                    </SignInButton>
+                  );
+                }
+
+                // If already signed in, just render the card (onClick navigates)
+                return (
+                  <div key={tool.title}>
+                    {Card}
+                  </div>
+                );
+              })}
             </motion.div>
 
             {/* VS Code extension CTA */}
@@ -491,7 +516,7 @@ function App() {
           </div>
         </section>
 
-        {/* SNEAK PEEK SECTION - Makes kids WANT to see the dashboard */}
+        {/* SNEAK PEEK SECTION */}
         <section className="py-20 bg-gradient-to-b from-blue-50 to-purple-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <motion.div
